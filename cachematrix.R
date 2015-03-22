@@ -27,6 +27,8 @@ makeCacheMatrix <- function(x = matrix()) {
 # otherwise first it calculates the inverse, 
 # sets the inverse matrix to the cache for the future calls 
 # and return the inverse matrix
+# If the column size of matrix and row size of matrix isn't equal, reverse matrix 
+# can not be calculated so function returns an error message
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   m <- x$getinverse()
