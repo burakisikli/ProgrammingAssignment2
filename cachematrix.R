@@ -24,7 +24,7 @@ makeCacheMatrix <- function(x = matrix()) {
 # Input: x, a square invertible matrix
 # Output: return the inverse matrix. 
 # If reverse matrix has already been computed, it gets the result from the cache, 
-# otherwise first it computes the inverse, 
+# otherwise first it calculates the inverse, 
 # sets the inverse matrix to the cache for the future calls 
 # and return the inverse matrix
 cacheSolve <- function(x, ...) {
