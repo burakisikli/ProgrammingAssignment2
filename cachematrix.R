@@ -35,6 +35,11 @@ cacheSolve <- function(x, ...) {
     return(m)
   }
   data <- x$get()
+  nrow(data) 
+  ncol(data)
+  if(nrow(data) != ncol(data)){
+    stop("Matrix isn't reversable")
+  }
   m <- solve(data, ...)
   x$setinverse(m)
   m
@@ -63,3 +68,15 @@ cacheSolve <- function(x, ...) {
 ## [2,]  0.8105560 -1.20543245  1.1746208 -1.12884948
 ## [3,] -0.1078742  0.08836469  0.4723390  0.04762787
 ## [4,]  0.1749326  0.37906000  0.3174578  0.01917019
+
+## > x = matrix( rnorm(4*3), 4, 3) 
+## > x
+##           [,1]       [,2]       [,3]
+## [1,] 1.5852080  0.2941187  0.1529524
+## [2,] 0.5811735  0.5939843  0.5287651
+## [3,] 0.2862531 -0.3325974 -1.3868125
+## [4,] 0.9317229  1.0535774  0.4423358
+
+## > m = makeCacheMatrix(x)
+## > cacheSolve(m)
+## Error in cacheSolve(m) : Matrix isn't reversable
